@@ -9,5 +9,5 @@ import java.util.Map;
 public interface UserDao {
     Map<String, Object> login(LoginCredentials credentials);
 
-    List<User> getallusers();
+    Map<String, Object> getallusers(String token);
 }

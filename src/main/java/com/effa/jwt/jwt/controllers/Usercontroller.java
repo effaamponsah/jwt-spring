@@ -44,7 +44,9 @@ public class Usercontroller implements UserDao {
     @CrossOrigin(origins = "*")
     @GetMapping("/users")
     @Override
-    public List<User> getallusers() {
-        return dummyusers;
+    public Map<String, Object> getallusers(@RequestHeader("access-token") String token) {
+        Map<String, Object> response = new HashMap<>();
+        response.put("users", dummyusers);
+       return response;
     }
 }
