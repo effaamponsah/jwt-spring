@@ -1,4 +1,4 @@
-package com.effa.jwt.jwt.models;
+package com.effa.jwt.models;
 
 public class LoginCredentials {
     private String username;

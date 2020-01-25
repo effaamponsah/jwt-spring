@@ -1,9 +1,9 @@
-package com.effa.jwt.jwt.controllers;
+package com.effa.jwt.controllers;
 
 
-import com.effa.jwt.jwt.DAO.UserDao;
-import com.effa.jwt.jwt.models.LoginCredentials;
-import com.effa.jwt.jwt.models.User;
+import com.effa.jwt.DAO.UserDao;
+import com.effa.jwt.models.LoginCredentials;
+import com.effa.jwt.models.User;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+
 @Api
 @RestController
 public class Usercontroller implements UserDao {
@@ -46,7 +46,13 @@ public class Usercontroller implements UserDao {
     @Override
     public Map<String, Object> getallusers(@RequestHeader("access-token") String token) {
         Map<String, Object> response = new HashMap<>();
-        response.put("users", dummyusers);
+        if (token.equals("toke")){
+            response.put("users", dummyusers);
+            return response;
+        }
+
+        response.put("success", false);
+        response.put("msg", "Wrong token");
        return response;
     }
 }

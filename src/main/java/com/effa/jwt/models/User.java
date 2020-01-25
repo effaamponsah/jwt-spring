@@ -1,4 +1,4 @@
-package com.effa.jwt.jwt.models;
+package com.effa.jwt.models;
 
 public class User {
     private int user_id;

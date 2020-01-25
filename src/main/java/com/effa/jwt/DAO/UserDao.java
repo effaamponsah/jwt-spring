@@ -1,9 +1,7 @@
-package com.effa.jwt.jwt.DAO;
+package com.effa.jwt.DAO;
 
-import com.effa.jwt.jwt.models.LoginCredentials;
-import com.effa.jwt.jwt.models.User;
+import com.effa.jwt.models.LoginCredentials;
 
-import java.util.List;
 import java.util.Map;
 
 public interface UserDao {

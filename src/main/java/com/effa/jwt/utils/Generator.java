@@ -1,4 +1,4 @@
-package com.effa.jwt.jwt.utils;
+package com.effa.jwt.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;

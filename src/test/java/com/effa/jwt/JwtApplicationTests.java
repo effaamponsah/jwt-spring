@@ -1,4 +1,4 @@
-package com.effa.jwt.jwt;
+package com.effa.jwt;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
