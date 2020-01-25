@@ -21,4 +21,16 @@ class GeneratorTest {
         DecodedJWT string = JWT.decode(token);
         assertEquals(string.getClaim("name").asString(), "Dennis");
     }
+
+    @Test
+    void checkToken(){
+        String token ="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhdXRoZW50aWNhdGlvbiIsImlzcyI6IkVmZmFfQW1wb25zYWgiLCJ1c2VybmFtZSI6ImphbWVzIn0.y3KEDYYKZF8vVoWVnZ5RMNdR7zVZk52J5uwpKMelMN4";
+        assertEquals(Generator.generate("james"), token);
+    }
+
+    @Test
+    void checkTokenNotEquals(){
+        String token ="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhdXRoZW50aWNhdGlvbiIsImlzcyI6IkVmZmFfQW1wb25zYWgiLCJ1c2VybmFtZSI6ImphbWVzIn0.y3KEDYYKZF8vVoWVnZ5RMNdR7zVZk52J5uwpKMelMN4";
+        assertNotEquals(Generator.generate("ama"), token);
+    }
 }
