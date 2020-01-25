@@ -4,14 +4,13 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 
 public class Generator {
-
-    public void generate(){
+    public String generate(String username){
         Algorithm algorithm = Algorithm.HMAC256("super secret");
         String token = JWT.create()
-                .withClaim("name", "Dennis")
-                .withSubject("okay")
-                .withIssuer("auth0").sign(algorithm);
+                .withClaim("username", username)
+                .withSubject("authentication")
+                .withIssuer("Effa_Amponsah").sign(algorithm);
+        return  token;
 
-        System.out.println(token);
     }
 }
