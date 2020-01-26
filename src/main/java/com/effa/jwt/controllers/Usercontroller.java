@@ -1,9 +1,12 @@
 package com.effa.jwt.controllers;
 
 
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.effa.jwt.DAO.UserDao;
 import com.effa.jwt.models.LoginCredentials;
 import com.effa.jwt.models.User;
+import com.effa.jwt.utils.Generator;
+import com.effa.jwt.utils.VerifyAndDecode;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +34,7 @@ public class Usercontroller implements UserDao {
         if (credentials.getUsername().equals("dennis123") && credentials.getPassword().equals("password")){
             response.put("success", true);
             response.put("data", dennis);
+            response.put("token", Generator.generate(credentials.getUsername()));
             return response;
         }
         else {
@@ -46,13 +50,18 @@ public class Usercontroller implements UserDao {
     @Override
     public Map<String, Object> getallusers(@RequestHeader("access-token") String token) {
         Map<String, Object> response = new HashMap<>();
-        if (token.equals("toke")){
+        try{
+            VerifyAndDecode.verifyToken(token);
+            VerifyAndDecode.decode(token);
             response.put("users", dummyusers);
+            response.put("user_initiating_request",VerifyAndDecode.decode(token)); //this can be anything useful to the endpoint. Maybe username or userid etc
+
             return response;
         }
-
-        response.put("success", false);
-        response.put("msg", "Wrong token");
-       return response;
+        catch (JWTVerificationException exception){
+            response.put("success",false);
+            response.put("msg", exception.getMessage());
+            return response;
+        }
     }
 }

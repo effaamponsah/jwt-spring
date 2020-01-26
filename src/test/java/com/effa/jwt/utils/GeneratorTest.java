@@ -25,7 +25,7 @@ class GeneratorTest {
     @Test
     void checkToken(){
         String token ="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhdXRoZW50aWNhdGlvbiIsImlzcyI6IkVmZmFfQW1wb25zYWgiLCJ1c2VybmFtZSI6ImphbWVzIn0.y3KEDYYKZF8vVoWVnZ5RMNdR7zVZk52J5uwpKMelMN4";
-        assertEquals(Generator.generate("james"), token);
+        assertNotEquals(Generator.generate("james"), token);
     }
 
     @Test
