@@ -1,7 +1,7 @@
 # JWT Secured Spring boot
 ### Intro
-> This is a simple JWT secured spring boot app. Clone the project and have a look at it or use the docker image provided to try it out.
-
+> This is a simple JWT secured spring boot app. Clone the project and have a look at it or use the docker image provided to try it out with 
+```docker pull effaamponsah/jwt-spring```
 ### Instructions
 > Run it as a normal spring boot app :). Nothing really new about this part.
 There are 2 endpoints, **/login** and **/users**.
