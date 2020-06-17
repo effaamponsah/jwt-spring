@@ -17,4 +17,4 @@ Use the **/login** to get the token.
 >       "password": "password"
 >}
 >```
->The above credentials are hardcoded since its a simple demo.
+>The above credentials are hardcoded since its a simple demo. And doesnt have any database
